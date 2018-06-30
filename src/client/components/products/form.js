@@ -58,7 +58,12 @@ export default class Form extends Component {
     fetch('/api/products', params)
       .then(res => res.json())
       .then(savedProductBody => {
-          console.log("Saved product: "+savedProductBody);
+          console.log("Saved product: "+ savedProductBody);
+          this.setState({
+            name: '', 
+            price: '',
+            description: ''
+          });
       });
   }
 
@@ -73,6 +78,7 @@ export default class Form extends Component {
             type="text"
             placeholder="Product Name"
             onChange={this.handleNameChange}
+            value={this.state.name}
           />
           <label htmlFor="product-price">Price $</label>
           <input
@@ -80,12 +86,14 @@ export default class Form extends Component {
             type="number"
             placeholder="Price"
             onChange={this.handlePriceChange}
+            value={this.state.price}
           />
           <label htmlFor="product-description">Description</label>
           <textarea
             id="product-description"
             placeholder="Product Description"
             onChange={this.handleDescriptionChange}
+            value={this.state.description}
           />
           <button type="submit">Save</button>
         </form>
