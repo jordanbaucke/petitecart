@@ -6,5 +6,5 @@ const products = require("./routes/product");
 
 module.exports = function (app) {
     app.use(express.json());
-    app.use('/api/products', products);
+    app.use('/products', products);
 }
