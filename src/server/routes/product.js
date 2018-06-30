@@ -15,6 +15,29 @@ router.get('/', (req, res) => {
 });
 
 /**
+ * GET by name
+ */
+router.get('/name/:name', (req, res) => {
+  const productName = req.params.name; 
+  Product.find({ name: productName})
+  .then((products, err) => {
+    res.send(products);
+  });
+}); 
+
+/**
+ * GET by id
+ */
+router.get('/id/:id', (req, res) => {
+  const productId = req.params.id; 
+  Product.find({ _id: productId})
+  .then((products, err) => {
+    res.send(products);
+  });
+});  
+
+
+/**
  * POST
  */
 router.post('/', (req, res) => {

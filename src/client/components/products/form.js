@@ -58,10 +58,10 @@ export default class Form extends Component {
     fetch('/api/products', params)
       .then(res => res.json())
       .then(savedProductBody => {
-          console.log("Saved product: "+ savedProductBody);
+          console.log("Saved product: "+ JSON.stringify(savedProductBody));
           this.setState({
             name: '', 
-            price: '',
+            price: 0,
             description: ''
           });
       });
